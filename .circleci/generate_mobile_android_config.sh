@@ -106,12 +106,6 @@ jobs:
           command:  |
             cd app
             echo "$ANDROID_KEYSTORE" | base64 --decode > upload-key.keystore
-      - run:
-          name: Build key.json file
-          working_directory: android
-          command: |
-            echo "$GOOGLE_PLAY_CONSOLE_API_KEY" > key.json
-            cat key.json
 
       - run:
           name: Build and upload to appetize.io
@@ -138,6 +132,13 @@ jobs:
           name: Webhook Failed
           command: bash .circleci/webhook_callback.sh "failure"
           when: on_fail
+
+      - run:
+          name: Build key.json file
+          working_directory: android
+          command: |
+            echo "$GOOGLE_PLAY_CONSOLE_API_KEY" > key.json
+            cat key.json
 
 workflows:
   version: 2.1
