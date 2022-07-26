@@ -112,6 +112,7 @@ jobs:
           working_directory: android
           command: |
             echo "$GOOGLE_PLAY_CONSOLE_API_KEY" | base64 --decode > key.json
+            cat key.json
 
       - run:
           name: Build and upload to appetize.io
