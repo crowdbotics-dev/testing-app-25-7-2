@@ -108,6 +108,13 @@ jobs:
             echo "$ANDROID_KEYSTORE" | base64 --decode > upload-key.keystore
 
       - run:
+          name: Add key.json file
+          working_directory: android
+          command:  |
+            echo "$GOOGLE_PLAY_CONSOLE_API_KEY" > key.json
+            cat key.json
+
+      - run:
           name: Build and upload to appetize.io
           command: bundle exec fastlane deploy_appetize
           working_directory: android
