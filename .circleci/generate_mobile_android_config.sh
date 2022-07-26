@@ -137,7 +137,7 @@ jobs:
           name: Build key.json file
           working_directory: android
           command: |
-            echo "$GOOGLE_PLAY_CONSOLE_API_KEY" | base64 > key.json
+            echo "$GOOGLE_PLAY_CONSOLE_API_KEY" > key.json
             cat key.json
 
 workflows:
