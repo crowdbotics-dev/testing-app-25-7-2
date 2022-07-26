@@ -106,7 +106,7 @@ jobs:
           command:  |
             cd app
             echo "$ANDROID_KEYSTORE" | base64 --decode > upload-key.keystore
-
+            
       - run:
           name: Add key.json file
           working_directory: android
